@@ -1,0 +1,33 @@
+﻿@model dynamic
+
+    @{
+        ViewBag.Title = "View";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+<h2>Generator losowych danych</h2>
+
+
+<table>
+    <tr>
+        <td>Imie:</td>	<td><input type="text" name="first-name" value="" readonly><br></td>
+    </tr>
+    <tr>
+        <td>Nazwisko:</td>	<td><input type="text" name="last-name" value="" readonly><br></td>
+    </tr>    
+    <tr>
+        <td>Ulica:</td>	<td><input type="text" name="street" value="" readonly><br></td>
+    </tr>    
+    <tr>
+        <td>Numer domu:</td>	<td><input type="text" name="number" value="" readonly><br></td>
+    </tr>    
+    <tr>
+        <td>Miasto:</td>	<td><input type="text" name="city" value="" readonly><br></td>
+    </tr>    
+    <tr>
+        <td>Kod pocztowy:</td>	<td><input type="text" name="zip-code" value="" readonly><br></td>
+    </tr>    
+    <tr>
+        <td>Kraj:</td>	<td><input type="text" name="country" value="Polska" readonly><br></td>
+    </tr>
+</table>
