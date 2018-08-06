@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -188,7 +194,34 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808052235245_InitialModel.cs" />
+    <Compile Include="Migrations\201808052235245_InitialModel.Designer.cs">
+      <DependentUpon>201808052235245_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808062159459_CitiesTableAdded.cs" />
+    <Compile Include="Migrations\201808062159459_CitiesTableAdded.Designer.cs">
+      <DependentUpon>201808062159459_CitiesTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808062208375_FirstNameTableAdded.cs" />
+    <Compile Include="Migrations\201808062208375_FirstNameTableAdded.Designer.cs">
+      <DependentUpon>201808062208375_FirstNameTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808062210291_LastNameTableAdded.cs" />
+    <Compile Include="Migrations\201808062210291_LastNameTableAdded.Designer.cs">
+      <DependentUpon>201808062210291_LastNameTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808062211173_StreetsTableAdded.cs" />
+    <Compile Include="Migrations\201808062211173_StreetsTableAdded.Designer.cs">
+      <DependentUpon>201808062211173_StreetsTableAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\FirstName.cs" />
+    <Compile Include="Models\LastName.cs" />
+    <Compile Include="Models\MyDbContext.cs" />
     <Compile Include="Models\RandomDataViewModel.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Street.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -230,7 +263,9 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -277,6 +312,23 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808052235245_InitialModel.resx">
+      <DependentUpon>201808052235245_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808062159459_CitiesTableAdded.resx">
+      <DependentUpon>201808062159459_CitiesTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808062208375_FirstNameTableAdded.resx">
+      <DependentUpon>201808062208375_FirstNameTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808062210291_LastNameTableAdded.resx">
+      <DependentUpon>201808062210291_LastNameTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808062211173_StreetsTableAdded.resx">
+      <DependentUpon>201808062211173_StreetsTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
