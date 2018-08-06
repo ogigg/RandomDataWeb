@@ -9,7 +9,6 @@ namespace RandomDataWeb.Models
 {
     public class MyDbContext : DbContext
     {
-        public DbSet<RandomDataViewModel> RandomDataViewModels { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<FirstName> FirstNames { get; set; }
         public DbSet<LastName> LastNames { get; set; }

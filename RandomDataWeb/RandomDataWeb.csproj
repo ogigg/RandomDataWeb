@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201808062211173_StreetsTableAdded.Designer.cs">
       <DependentUpon>201808062211173_StreetsTableAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808062219570_RandomDataViewModelDeleted.cs" />
+    <Compile Include="Migrations\201808062219570_RandomDataViewModelDeleted.Designer.cs">
+      <DependentUpon>201808062219570_RandomDataViewModelDeleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\FirstName.cs" />
@@ -328,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808062211173_StreetsTableAdded.resx">
       <DependentUpon>201808062211173_StreetsTableAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808062219570_RandomDataViewModelDeleted.resx">
+      <DependentUpon>201808062219570_RandomDataViewModelDeleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
