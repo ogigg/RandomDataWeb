@@ -1,5 +1,12 @@
+using System.IO;
+using System.Reflection;
+using System.Text;
+using CsvHelper;
+using RandomDataWeb.Models;
+
 namespace RandomDataWeb.Migrations
 {
+    using RandomDataWeb.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -12,12 +19,71 @@ namespace RandomDataWeb.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(RandomDataWeb.Models.MyDbContext context)
+        protected override void Seed(MyDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            //Assembly assembly = Assembly.GetExecutingAssembly();
+            //string resourceName = "RandomDataWeb.Models.SeedData.FirstNames.csv";
+            //using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            //{
+            //    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+            //    {
+            //        CsvReader csvReader = new CsvReader(reader);
+            //        csvReader.Configuration.MissingFieldFound = null;
+            //        csvReader.Configuration.HeaderValidated = null;
+            //        var firstNames = csvReader.GetRecords<FirstName>().ToArray();
+            //        context.FirstNames.AddOrUpdate(f => f.Name, firstNames);
+            //    }
+            //}
+            //resourceName = "RandomDataWeb.Models.SeedData.Streets.csv";
+            //using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            //{
+            //    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+            //    {
+            //        CsvReader csvReader = new CsvReader(reader);
+            //        csvReader.Configuration.MissingFieldFound = null;
+            //        csvReader.Configuration.HeaderValidated = null;
+            //        var streets = csvReader.GetRecords<Street>().ToArray();
+            //        context.Streets.AddOrUpdate(s => s.Name, streets);
+            //    }
+            //}
+            //resourceName = "RandomDataWeb.Models.SeedData.LastNames.csv";
+            //using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            //{
+            //    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+            //    {
+            //        CsvReader csvReader = new CsvReader(reader);
+            //        csvReader.Configuration.MissingFieldFound = null;
+            //        csvReader.Configuration.HeaderValidated = null;
+            //        var firstNames = csvReader.GetRecords<LastName>().ToArray();
+            //        context.LastNames.AddOrUpdate(f => f.NameMale, firstNames);
+            //    }
+            //}
+            ////resourceName = "RandomDataWeb.Models.SeedData.Cities.csv";
+            ////using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            ////{
+            ////    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+            ////    {
+            ////        CsvReader csvReader = new CsvReader(reader);
+            ////        csvReader.Configuration.MissingFieldFound = null;
+            ////        csvReader.Configuration.HeaderValidated = null;
+            ////        var cities = csvReader.GetRecords<City>().ToArray();
+            ////        context.Cities.AddOrUpdate(c => c.Name, cities);
+            ////    }
+            ////}
+            //resourceName = "RandomDataWeb.Models.SeedData.States.csv";
+            //using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            //{
+            //    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+            //    {
+            //        CsvReader csvReader = new CsvReader(reader);
+            //        csvReader.Configuration.MissingFieldFound = null;
+            //        csvReader.Configuration.HeaderValidated = null;
+            //        var states = csvReader.GetRecords<State>().ToArray();
+            //        context.States.AddOrUpdate(s => s.Name, states);
+            //    }
+            //}
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+            //context.SaveChanges();
         }
     }
 }

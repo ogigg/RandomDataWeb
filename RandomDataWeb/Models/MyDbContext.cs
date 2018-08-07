@@ -13,6 +13,7 @@ namespace RandomDataWeb.Models
         public DbSet<FirstName> FirstNames { get; set; }
         public DbSet<LastName> LastNames { get; set; }
         public DbSet<Street> Streets { get; set; }
+        public DbSet<State> States { get; set; }
 
 
         public MyDbContext()

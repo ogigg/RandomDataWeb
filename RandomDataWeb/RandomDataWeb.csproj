@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CsvHelper, Version=7.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\CsvHelper.7.1.1\lib\net45\CsvHelper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -218,6 +221,10 @@
     <Compile Include="Migrations\201808062219570_RandomDataViewModelDeleted.Designer.cs">
       <DependentUpon>201808062219570_RandomDataViewModelDeleted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808071235498_StatesAdded.cs" />
+    <Compile Include="Migrations\201808071235498_StatesAdded.Designer.cs">
+      <DependentUpon>201808071235498_StatesAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\FirstName.cs" />
@@ -261,6 +268,14 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="Migrations\201808071235498_StatesAdded.resx">
+      <DependentUpon>201808071235498_StatesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\SeedData\FirstNames.csv" />
+    <EmbeddedResource Include="Models\SeedData\LastNames.csv" />
+    <EmbeddedResource Include="Models\SeedData\Cities.csv" />
+    <EmbeddedResource Include="Models\SeedData\States.csv" />
+    <EmbeddedResource Include="Models\SeedData\Streets.csv" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
