@@ -272,10 +272,10 @@
       <DependentUpon>201808071235498_StatesAdded.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Models\SeedData\FirstNames.csv" />
-    <EmbeddedResource Include="Models\SeedData\LastNames.csv" />
     <EmbeddedResource Include="Models\SeedData\Cities.csv" />
-    <EmbeddedResource Include="Models\SeedData\States.csv" />
     <EmbeddedResource Include="Models\SeedData\Streets.csv" />
+    <EmbeddedResource Include="Models\SeedData\LastNames.csv" />
+    <EmbeddedResource Include="Models\SeedData\States.csv" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

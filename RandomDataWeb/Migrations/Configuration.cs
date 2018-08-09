@@ -12,7 +12,7 @@ namespace RandomDataWeb.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<RandomDataWeb.Models.MyDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<MyDbContext>
     {
         public Configuration()
         {
@@ -49,7 +49,7 @@ namespace RandomDataWeb.Migrations
             resourceName = "RandomDataWeb.Models.SeedData.LastNames.csv";
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
-                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                using (StreamReader reader = new StreamReader(stream, Encoding.Unicode))
                 {
                     CsvReader csvReader = new CsvReader(reader);
                     csvReader.Configuration.MissingFieldFound = null;
@@ -73,7 +73,7 @@ namespace RandomDataWeb.Migrations
             resourceName = "RandomDataWeb.Models.SeedData.States.csv";
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
-                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                using (StreamReader reader = new StreamReader(stream, Encoding.Unicode))
                 {
                     CsvReader csvReader = new CsvReader(reader);
                     csvReader.Configuration.MissingFieldFound = null;
@@ -83,7 +83,7 @@ namespace RandomDataWeb.Migrations
                 }
             }
 
-            context.SaveChanges();
+            //context.SaveChanges();
         }
     }
 }
