@@ -12,7 +12,7 @@ namespace RandomDataWeb.Models
         public FirstName FirstName{ get; set; }
         public LastName LastName { get; set; }
         public Street Street { get; set; }
-        public byte Number { get; set; }
+        public int Number { get; set; }
         public string ZipCode { get; set; }
         public City City { get; set; }
         public State State { get; set; }
