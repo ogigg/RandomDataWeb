@@ -14,7 +14,7 @@ namespace RandomDataWeb.Models
         public DbSet<LastName> LastNames { get; set; }
         public DbSet<Street> Streets { get; set; }
         public DbSet<State> States { get; set; }
-
+        public DbSet<Coupon> Coupons { get; set; }
 
         public MyDbContext()
         {

@@ -49,7 +49,7 @@ namespace RandomDataWeb.Migrations
             resourceName = "RandomDataWeb.Models.SeedData.LastNames.csv";
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             {
-                using (StreamReader reader = new StreamReader(stream, Encoding.Unicode))
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
                 {
                     CsvReader csvReader = new CsvReader(reader);
                     csvReader.Configuration.MissingFieldFound = null;

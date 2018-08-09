@@ -1,0 +1,29 @@
+﻿@model RandomDataWeb.Models.Coupon
+
+@{
+    ViewBag.Title = "Dodawanie nowego kuponu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Dodawanie nowego kuponu</h2>
+
+
+@using (Html.BeginForm("Save", "Coupon"))
+{
+    @Html.ValidationSummary(true, "Popraw błędy!")
+    <div class="form-group">
+        @Html.LabelFor(m => m.CouponCode)
+        @Html.TextBoxFor(m => m.CouponCode, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.CouponCode)
+    </div>
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+@*<form>
+    Kod:<br>
+    <input type="text" name="coupon">
+    <br>
+    <br><br>
+    <input type="submit" value="Wyślij">
+</form>*@
+
+
