@@ -3,33 +3,31 @@ using RandomDataWeb.Models;
 
 namespace RandomDataWeb.Areas.HelpPage.Controllers
 {
-    public class CouponController : Controller
+    public class AccountController : Controller
     {
         private MyDbContext _context;
 
-        public CouponController()
+        public AccountController()
         {
             _context = new MyDbContext();
         }
 
         public ActionResult Index()
         {
-            ViewBag.Title = "Dodaj nowy kupon";
-
+            ViewBag.Title = "Dodaj nowego użytkownika";
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Coupon coupon)
+        public ActionResult Save(Account account)
         {
             if (!ModelState.IsValid)
             {
-                return View("Index", coupon);
+                return View("Index", account);
             }
 
-            _context.Coupons.Add(coupon);
-
+            _context.Accounts.Add(account);
             _context.SaveChanges();
 
             return RedirectToAction("Index");
