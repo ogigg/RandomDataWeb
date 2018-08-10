@@ -21,23 +21,23 @@ namespace RandomDataWeb.Migrations
 
         protected override void Seed(MyDbContext context)
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            string resourceName = "RandomDataWeb.Models.SeedData.FirstNames.csv";
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            {
-                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
-                {
-                    CsvReader csvReader = new CsvReader(reader);
-                    csvReader.Configuration.MissingFieldFound = null;
-                    csvReader.Configuration.HeaderValidated = null;
-                    var firstNames = csvReader.GetRecords<FirstName>().ToArray();
-                    context.FirstNames.AddOrUpdate(f => f.Name, firstNames);
-                }
-            }
+            //Assembly assembly = Assembly.GetExecutingAssembly();
+            //string resourceName = "RandomDataWeb.Models.SeedData.FirstNames.csv";
+            //using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            //{
+            //    using (StreamReader reader = new StreamReader(stream, Encoding.Default))
+            //    {
+            //        CsvReader csvReader = new CsvReader(reader);
+            //        csvReader.Configuration.MissingFieldFound = null;
+            //        csvReader.Configuration.HeaderValidated = null;
+            //        var firstNames = csvReader.GetRecords<FirstName>().ToArray();
+            //        context.FirstNames.AddOrUpdate(f => f.Name, firstNames);
+            //    }
+            //}
             //resourceName = "RandomDataWeb.Models.SeedData.Streets.csv";
             //using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             //{
-            //    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+            //    using (StreamReader reader = new StreamReader(stream, Encoding.Default))
             //    {
             //        CsvReader csvReader = new CsvReader(reader);
             //        csvReader.Configuration.MissingFieldFound = null;
@@ -46,22 +46,22 @@ namespace RandomDataWeb.Migrations
             //        context.Streets.AddOrUpdate(s => s.Name, streets);
             //    }
             //}
-            resourceName = "RandomDataWeb.Models.SeedData.LastNames.csv";
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            {
-                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
-                {
-                    CsvReader csvReader = new CsvReader(reader);
-                    csvReader.Configuration.MissingFieldFound = null;
-                    csvReader.Configuration.HeaderValidated = null;
-                    var firstNames = csvReader.GetRecords<LastName>().ToArray();
-                    context.LastNames.AddOrUpdate(f => f.NameMale, firstNames);
-                }
-            }
+            //resourceName = "RandomDataWeb.Models.SeedData.LastNames.csv";
+            //using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            //{
+            //    using (StreamReader reader = new StreamReader(stream, Encoding.Default))
+            //    {
+            //        CsvReader csvReader = new CsvReader(reader);
+            //        csvReader.Configuration.MissingFieldFound = null;
+            //        csvReader.Configuration.HeaderValidated = null;
+            //        var firstNames = csvReader.GetRecords<LastName>().ToArray();
+            //        context.LastNames.AddOrUpdate(f => f.NameMale, firstNames);
+            //    }
+            //}
             //resourceName = "RandomDataWeb.Models.SeedData.Cities.csv";
             //using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             //{
-            //    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+            //    using (StreamReader reader = new StreamReader(stream, Encoding.Default))
             //    {
             //        CsvReader csvReader = new CsvReader(reader);
             //        csvReader.Configuration.MissingFieldFound = null;
@@ -70,18 +70,18 @@ namespace RandomDataWeb.Migrations
             //        context.Cities.AddOrUpdate(c => c.Name, cities);
             //    }
             //}
-            resourceName = "RandomDataWeb.Models.SeedData.States.csv";
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            {
-                using (StreamReader reader = new StreamReader(stream, Encoding.Unicode))
-                {
-                    CsvReader csvReader = new CsvReader(reader);
-                    csvReader.Configuration.MissingFieldFound = null;
-                    csvReader.Configuration.HeaderValidated = null;
-                    var states = csvReader.GetRecords<State>().ToArray();
-                    context.States.AddOrUpdate(s => s.Name, states);
-                }
-            }
+            //resourceName = "RandomDataWeb.Models.SeedData.States.csv";
+            //using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            //{
+            //    using (StreamReader reader = new StreamReader(stream, Encoding.Default))
+            //    {
+            //        CsvReader csvReader = new CsvReader(reader);
+            //        csvReader.Configuration.MissingFieldFound = null;
+            //        csvReader.Configuration.HeaderValidated = null;
+            //        var states = csvReader.GetRecords<State>().ToArray();
+            //        context.States.AddOrUpdate(s => s.Name, states);
+            //    }
+            //}
 
             //context.SaveChanges();
         }
