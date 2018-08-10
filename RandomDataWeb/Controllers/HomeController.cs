@@ -17,22 +17,8 @@ namespace RandomDataWeb.Controllers
     {
         public ActionResult Index()
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            string resourceName = "RandomDataWeb.Models.SeedData.FirstNames.csv";
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            {
-                using (StreamReader reader = new StreamReader(stream, Encoding.Default))
-                {
-                    CsvReader csvReader = new CsvReader(reader);
-                    csvReader.Configuration.MissingFieldFound = null;
-                    csvReader.Configuration.HeaderValidated = null;
-                    var firstNames = csvReader.GetRecords<FirstName>().ToArray();
-                    return View(firstNames);
-                }
-            }
             ViewBag.Title = "Generator losowych danych";
-
-            //return View(firstNames);
+            return View();
         }
     }
 }

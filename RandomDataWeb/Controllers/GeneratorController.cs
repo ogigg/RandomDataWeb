@@ -27,8 +27,8 @@ namespace RandomDataWeb.Controllers
                 Street = _context.Streets.OrderBy(s => Guid.NewGuid()).First(),
                 State = _context.States.OrderBy(s => Guid.NewGuid()).First(),
                 City = _context.Cities.OrderBy(c => Guid.NewGuid()).First(),
-                Number = rnd.Next(0,30),
-                ZipCode = rnd.Next(0, 90).ToString("D2") + "-"+ rnd.Next(0, 990).ToString("D3")
+                Number = rnd.Next(1,30),
+                ZipCode = rnd.Next(5, 90).ToString("D2") + "-"+ rnd.Next(0, 990).ToString("D3")
 
             };
 
