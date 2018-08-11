@@ -166,6 +166,7 @@
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\RandomDataController.cs" />
     <Compile Include="Controllers\CouponController.cs" />
     <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
     <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
