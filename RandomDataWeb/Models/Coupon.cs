@@ -12,6 +12,8 @@ namespace RandomDataWeb.Models
         public int Id { get; set; }
 
         [DisplayName("Kod")]
+        [Required]
+        [MaxLength(15)]
         public string CouponCode{ get; set; }
     }
 }
