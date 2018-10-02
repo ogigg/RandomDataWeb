@@ -1,38 +1,75 @@
-﻿@model RandomDataWeb.Models.RandomDataViewModel
+@model RandomDataWeb.Models.RandomDataViewModel
 
-    @{
-        ViewBag.Title = "Generator losowych danych";
-        Layout = "~/Views/Shared/_Layout.cshtml";
-    }
+@{
+  ViewBag.Title = "Generator losowych danych";
+  int val = 1;
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 <h2>Generator losowych danych</h2>
 
-
+<i>Protip: Kliknij na pole tekstowe zeby skopiowac</i>
 
 
 <table>
-    <tr>
-        <td>Imie:</td>	<td><input type="text" name="first-name" value="@Model.FirstName.Name" readonly><br></td>
-    </tr>
-    <tr>
-        <td>Nazwisko:</td>	<td><input type="text" name="last-name" value="@Model.LastName.NameMale" readonly><br></td>
-    </tr>    
-    <tr>
-        <td>Ulica:</td>	<td><input type="text" name="street" value="@Model.Street.Name" readonly><br></td>
-    </tr>    
-    <tr>
-        <td>Numer domu:</td>	<td><input type="text" name="number" value="@Model.Number" readonly><br></td>
-    </tr>    
-    <tr>
-        <td>Miasto:</td>	<td><input type="text" name="city" value="@Model.City.Name" readonly><br></td>
-    </tr>    
-    <tr>
-        <td>Kod pocztowy:</td>	<td><input type="text" name="zip-code" value="@Model.ZipCode" readonly><br></td>
-    </tr>      <tr>
-        <td>Wojewodztwo:</td>	<td><input type="text" name="state" value="@Model.State.Name" readonly><br></td>
-    </tr>    
+  <tr>
+    <td>Imie:</td>
+    <td><input type="text" id="p1" onclick="copyToClipboard(this.id)" name="first-name" value="@Model.FirstName.Name" readonly><br></td>
+  </tr>
+  <tr>
+    <td>Nazwisko:</td>
+    <td><input type="text" id="p2" onclick="copyToClipboard(this.id)" name="last-name" value="@Model.LastName.NameMale" readonly><br></td>
+  </tr>
+  <tr>
+    <td>Ulica:</td>
+    <td><input type="text" id="p3" onclick="copyToClipboard(this.id)" name="street" value="@Model.Street.Name" readonly><br></td>
+  </tr>
+  <tr>
+    <td>Numer domu:</td>
+    <td><input type="text" id="p4" onclick="copyToClipboard(this.id)" name="number" value="@Model.Number" readonly><br></td>
+  </tr>
+  <tr>
+    <td>Miasto:</td>
+    <td><input type="text" id="p5" onclick="copyToClipboard(this.id)" name="city" value="@Model.City.Name" readonly><br></td>
+  </tr>
+  <tr>
+    <td>Kod pocztowy:</td>
+    <td><input type="text" id="p6" onclick="copyToClipboard(this.id)" name="zip-code" value="@Model.ZipCode" readonly><br></td>
+  </tr>
+  <tr>
+    <td>Wojewodztwo:</td>
+    <td><input type="text" id="p7" onclick="copyToClipboard(this.id)" name="state" value="@Model.State.Name" readonly><br></td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td><input type="text" id="p8" onclick="copyToClipboard(this.id)" name="state" value="@Model.Email" readonly><br></td>
+  </tr>
+  <tr>
+    <td>Telefon:</td>
+    <td><input type="text" id="p9" onclick="copyToClipboard(this.id)" name="state" value="@Model.Phone" readonly><br></td>
+  </tr>
 </table>
 
 <p>
-    @Html.ActionLink("Generuj jeszcze raz!", "Index", "Generator", null, new { @class = "btn btn-primary" })
+  @Html.ActionLink("Generuj jeszcze raz!", "Index", "Generator", null, new { @class = "btn btn-primary" })
 </p>
+
+<p>
+  @Html.ActionLink("Pobierz dane", "DownloadData", "Generator", null, new { @class = "btn btn-primary" })
+</p>
+
+
+@section scripts
+{
+  <script>
+    function copyToClipboard(element) {
+      document.getElementById(element).select();
+      document.execCommand("copy");
+    }
+    function changeCountValue() {
+      $('#myVar').val(document.getElementById("count").value);   
+    }
+  </script>
+}
+
+

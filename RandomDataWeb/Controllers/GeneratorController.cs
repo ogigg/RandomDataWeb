@@ -1,7 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Http.Results;
 using System.Web.Mvc;
 using RandomDataWeb.Models;
 
@@ -28,11 +30,40 @@ namespace RandomDataWeb.Controllers
                 State = _context.States.OrderBy(s => Guid.NewGuid()).First(),
                 City = _context.Cities.OrderBy(c => Guid.NewGuid()).First(),
                 Number = rnd.Next(1,30),
-                ZipCode = rnd.Next(5, 90).ToString("D2") + "-"+ rnd.Next(0, 990).ToString("D3")
-
+                ZipCode = rnd.Next(5, 90).ToString("D2") + "-"+ rnd.Next(0, 990).ToString("D3"),
+                Email = Path.GetRandomFileName().Replace(".", "") + "@ogig.ct8.pl",
+                Phone = rnd.Next(400000000, 800000000)
             };
 
             return View(randomDataViewModel);
         }
+
+      public ActionResult DownloadData()
+    { //\r\n
+      var rnd = new Random();
+      string data =
+          _context.FirstNames.OrderBy(f => Guid.NewGuid()).First().Name + " " +
+          _context.LastNames.OrderBy(l => Guid.NewGuid()).First().NameMale + " " +
+          _context.Streets.OrderBy(s => Guid.NewGuid()).First().Name + " " +
+          rnd.Next(1, 30) + " " +
+          _context.Cities.OrderBy(c => Guid.NewGuid()).First().Name + " " +
+          rnd.Next(5, 90).ToString("D2") + "-" + rnd.Next(0, 990).ToString("D3") + " " +
+          _context.States.OrderBy(s => Guid.NewGuid()).First().Name + " " +
+          Path.GetRandomFileName().Replace(".", "") + "@mail.com" + " " +
+          rnd.Next(400000000, 800000000);
+      
+
+
+      Response.Clear();
+        Response.AddHeader("content-disposition", "attachment; filename=RandomData.txt");
+        Response.AddHeader("content-type", "text/plain");
+
+        using (StreamWriter writer = new StreamWriter(Response.OutputStream))
+        {
+          writer.WriteLine(data);
+        }
+        Response.End();
+        return View("Index");
+      }
     }
 }

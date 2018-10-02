@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,6 +16,7 @@ namespace RandomDataWeb.Models
         public string ZipCode { get; set; }
         public City City { get; set; }
         public State State { get; set; }
-
+        public string Email{ get; set; }
+        public int Phone { get; set; }
     }
 }
