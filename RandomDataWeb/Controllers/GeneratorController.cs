@@ -31,7 +31,7 @@ namespace RandomDataWeb.Controllers
                 City = _context.Cities.OrderBy(c => Guid.NewGuid()).First(),
                 Number = rnd.Next(1,30),
                 ZipCode = rnd.Next(5, 90).ToString("D2") + "-"+ rnd.Next(0, 990).ToString("D3"),
-                Email = Path.GetRandomFileName().Replace(".", "") + "@ogig.ct8.pl",
+                Email = Path.GetRandomFileName().Replace(".", "") + "@mail.com",
                 Phone = rnd.Next(400000000, 800000000)
             };
 

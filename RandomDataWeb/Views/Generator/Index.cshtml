@@ -55,9 +55,9 @@
 </p>
 <label for="count">Ile zestawów danych chcesz pobrać?</label>
 <input type="number" id="count" name="count" value="1" min="1" style="width: 5em"/>
-@*<p>
-  @Html.ActionLink("Pobierz dane", "DownloadData", "Generator", new { count = 10000 }, new { @class = "btn btn-primary" })
-</p>*@
+<label for="count">Jaki email?</label>
+<input type="text" id="email" name="email" value="mail.com" style="width: 8em"/>
+
 <p>
   <a class="btn btn-primary" id="download-button" href="http://">Pobierz plik txt</a>
 </p>
@@ -74,7 +74,8 @@
       $('#myVar').val(document.getElementById("count").value);   
     }
     document.getElementById("download-button").onclick = function() {
-      this.href = "/api/downloaddata/" + document.getElementById("count").value;
+      this.href = "/api/downloaddata/?count=" + document.getElementById("count").value;
+      this.href = this.href + "&email=" + document.getElementById("email").value;
       console.log(this.href);
     };
   </script>

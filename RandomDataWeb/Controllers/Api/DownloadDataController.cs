@@ -74,5 +74,34 @@ namespace RandomDataWeb.Controllers.Api
       httpResponse.Content.Headers.ContentDisposition.FileName = "RandomData.txt";
       return httpResponse;
     }
+    //GET /api/DownloadData/100/example.com
+    [HttpGet]
+    //[Route ("api/DownloadData/{count}/{email}")]
+    public HttpResponseMessage DownloadData(int count,string email)
+    {
+      var rnd = new Random();
+
+      var sb = new System.Text.StringBuilder();
+      for (int i = 0; i < count; i++)
+      {
+        sb.AppendLine(_context.FirstNames.OrderBy(f => Guid.NewGuid()).First().Name + " " +
+                      _context.LastNames.OrderBy(l => Guid.NewGuid()).First().NameMale + " " +
+                      _context.Streets.OrderBy(s => Guid.NewGuid()).First().Name + " " +
+                      rnd.Next(1, 30) + " " +
+                      _context.Cities.OrderBy(c => Guid.NewGuid()).First().Name + " " +
+                      rnd.Next(5, 90).ToString("D2") + "-" + rnd.Next(0, 990).ToString("D3") + " " +
+                      _context.States.OrderBy(s => Guid.NewGuid()).First().Name + " " +
+                      Path.GetRandomFileName().Replace(".", "") + "@" + email + " " +
+                      rnd.Next(400000000, 800000000)
+        );
+      }
+      var httpResponse = new HttpResponseMessage(HttpStatusCode.OK);
+
+      httpResponse.Content = new StreamContent(new MemoryStream(Encoding.UTF8.GetBytes(sb.ToString())));
+      httpResponse.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+      httpResponse.Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment");
+      httpResponse.Content.Headers.ContentDisposition.FileName = "RandomData.txt";
+      return httpResponse;
+    }
   }
 }
