@@ -53,9 +53,13 @@
 <p>
   @Html.ActionLink("Generuj jeszcze raz!", "Index", "Generator", null, new { @class = "btn btn-primary" })
 </p>
-
+<label for="count">Ile zestawów danych chcesz pobrać?</label>
+<input type="number" id="count" name="count" value="1" min="1" style="width: 5em"/>
+@*<p>
+  @Html.ActionLink("Pobierz dane", "DownloadData", "Generator", new { count = 10000 }, new { @class = "btn btn-primary" })
+</p>*@
 <p>
-  @Html.ActionLink("Pobierz dane", "DownloadData", "Generator", null, new { @class = "btn btn-primary" })
+  <a class="btn btn-primary" id="download-button" href="http://">Pobierz plik txt</a>
 </p>
 
 
@@ -69,6 +73,10 @@
     function changeCountValue() {
       $('#myVar').val(document.getElementById("count").value);   
     }
+    document.getElementById("download-button").onclick = function() {
+      this.href = "/api/downloaddata/" + document.getElementById("count").value;
+      console.log(this.href);
+    };
   </script>
 }
 

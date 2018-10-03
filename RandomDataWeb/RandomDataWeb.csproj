@@ -161,6 +161,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\Api\DownloadDataController.cs" />
     <Compile Include="node_modules\node-gyp\lib\Find-VS2017.cs" />
     <Compile Include="node_modules\selenium-webdriver\lib\test\data\Page.aspx.cs">
       <DependentUpon>Page.aspx</DependentUpon>

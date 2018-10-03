@@ -38,21 +38,24 @@ namespace RandomDataWeb.Controllers
             return View(randomDataViewModel);
         }
 
-      public ActionResult DownloadData()
+      public ActionResult DownloadData(int count)
     { //\r\n
       var rnd = new Random();
-      string data =
-          _context.FirstNames.OrderBy(f => Guid.NewGuid()).First().Name + " " +
-          _context.LastNames.OrderBy(l => Guid.NewGuid()).First().NameMale + " " +
-          _context.Streets.OrderBy(s => Guid.NewGuid()).First().Name + " " +
-          rnd.Next(1, 30) + " " +
-          _context.Cities.OrderBy(c => Guid.NewGuid()).First().Name + " " +
-          rnd.Next(5, 90).ToString("D2") + "-" + rnd.Next(0, 990).ToString("D3") + " " +
-          _context.States.OrderBy(s => Guid.NewGuid()).First().Name + " " +
-          Path.GetRandomFileName().Replace(".", "") + "@mail.com" + " " +
-          rnd.Next(400000000, 800000000);
-      
 
+      var sb = new System.Text.StringBuilder();
+      for (int i = 0; i < count; i++)
+      {
+        sb.AppendLine(_context.FirstNames.OrderBy(f => Guid.NewGuid()).First().Name + " " +
+                      _context.LastNames.OrderBy(l => Guid.NewGuid()).First().NameMale + " " +
+                      _context.Streets.OrderBy(s => Guid.NewGuid()).First().Name + " " +
+                      rnd.Next(1, 30) + " " +
+                      _context.Cities.OrderBy(c => Guid.NewGuid()).First().Name + " " +
+                      rnd.Next(5, 90).ToString("D2") + "-" + rnd.Next(0, 990).ToString("D3") + " " +
+                      _context.States.OrderBy(s => Guid.NewGuid()).First().Name + " " +
+                      Path.GetRandomFileName().Replace(".", "") + "@mail.com" + " " +
+                      rnd.Next(400000000, 800000000)
+                      );
+      }
 
       Response.Clear();
         Response.AddHeader("content-disposition", "attachment; filename=RandomData.txt");
@@ -60,7 +63,7 @@ namespace RandomDataWeb.Controllers
 
         using (StreamWriter writer = new StreamWriter(Response.OutputStream))
         {
-          writer.WriteLine(data);
+          writer.WriteLine(sb.ToString());
         }
         Response.End();
         return View("Index");
